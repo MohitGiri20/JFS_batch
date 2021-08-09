@@ -1,0 +1,12 @@
+// Maven Web Application
+
+-> Select Maven Project from file tab.
+-> Select maven-archetype-webapp(version 1.0)
+-> Provide groupId, artifactId,version,package
+-> Add Servlet in pom.xml
+-> Configure tomcat server
+-> Run the application on tomcat server
+
+Github Repository : 
+
+https://github.com/MohitGiri20/maevenDemoWeb

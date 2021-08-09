@@ -1,0 +1,319 @@
+Git and Github
+
+Repository Link
+https://github.com/MohitGiri20/tdemo
+
+--------------------------------------------------------------------------------------------------------------
+CLI
+--------------------------------------------------------------------------------------------------------------
+Microsoft Windows [Version 10.0.18363.1621]
+(c) 2019 Microsoft Corporation. All rights reserved.
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git init
+Initialized empty Git repository in C:/Users/d976996/OneDrive - Telstra/Documents/JFS/Day1/gitex/.git/
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git ls
+git: 'ls' is not a git command. See 'git --help'.
+
+The most similar command is
+        lfs
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git add .
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git commit -m "File 1 version 1"
+[master (root-commit) 1d32da3] File 1 version 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git add file2.txt
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   file2.txt
+
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git commit -m "Added file 2"
+[master bcd491c] Added file 2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status
+On branch master
+nothing to commit, working tree clean
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file2.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git add .
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git commit -m "file 2 updated"
+[master 880844c] file 2 updated
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git rm file2.txt
+rm 'file2.txt'
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    file2.txt
+
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git restore file2.txt
+error: pathspec 'file2.txt' did not match any file(s) known to git
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status -s
+D  file2.txt
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git mv file1.txt file1.pdf
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status -s
+R  file1.txt -> file1.pdf
+D  file2.txt
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git restore file2.txt
+error: pathspec 'file2.txt' did not match any file(s) known to git
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git checkout HEAD file2.txt
+Updated 1 path from 02fbaee
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        renamed:    file1.txt -> file1.pdf
+
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git diff --staged
+diff --git a/file1.txt b/file1.pdf
+similarity index 100%
+rename from file1.txt
+rename to file1.pdf
+Syntax Warning: May not be a PDF file (continuing anyway)
+Syntax Error: Couldn't read xref table
+Syntax Warning: PDF file is damaged - attempting to reconstruct xref table...
+Syntax Error: Couldn't find trailer dictionary
+Syntax Error: Couldn't read xref table
+--- a/file1.txt
++++ b/file1.pdf
+@@ -1 +0,0 @@
+-First Version
+\ No newline at end of file
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git mv file1.pdf file1.txt
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git --diff staged
+unknown option: --diff
+usage: git [--version] [--help] [-C <path>] [-c <name>=<value>]
+           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]
+           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]
+           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
+           [--super-prefix=<path>] [--config-env=<name>=<envvar>]
+           <command> [<args>]
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git diff --staged
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git add .
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git diff --staged
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git add .
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git diff --staged
+diff --git a/file1.txt b/file1.txt
+index 45e8d9c..2dcdca8 100644
+--- a/file1.txt
++++ b/file1.txt
+@@ -1 +1 @@
+-First Version
+\ No newline at end of file
++First Version, back to text format
+\ No newline at end of file
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git log
+commit 880844c59ec92cf796cff1861f5ba2a7a12883c0 (HEAD -> master)
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 14:47:48 2021 +0530
+
+    file 2 updated
+
+commit bcd491c7e9aff422b4518abf2219b337760bb651
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 14:44:17 2021 +0530
+
+    Added file 2
+
+commit 1d32da3adce65129fd19661a079407c876c9b1a2
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 14:36:43 2021 +0530
+
+    File 1 version 1
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git log --oneline
+880844c (HEAD -> master) file 2 updated
+bcd491c Added file 2
+1d32da3 File 1 version 1
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git show 880844c
+commit 880844c59ec92cf796cff1861f5ba2a7a12883c0 (HEAD -> master)
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 14:47:48 2021 +0530
+
+    file 2 updated
+
+diff --git a/file2.txt b/file2.txt
+index eb334de..fa6cd7d 100644
+--- a/file2.txt
++++ b/file2.txt
+@@ -1 +1 @@
+-New Version
++New Version updated
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git show HEAD~1
+commit bcd491c7e9aff422b4518abf2219b337760bb651
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 14:44:17 2021 +0530
+
+    Added file 2
+
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..eb334de
+--- /dev/null
++++ b/file2.txt
+@@ -0,0 +1 @@
++New Version
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git show HEAD~1 : file2.txt
+fatal: ambiguous argument ':': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git show HEAD~1:file2.txtxt
+fatal: path 'file2.txtxt' does not exist in 'HEAD~1'
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git show HEAD~1:file2.txt
+New Version
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git remote add origin https://github.com/MohitGiri20/tdemo.git
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git push -u origin master
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (5/5), done.
+Writing objects: 100% (9/9), 750 bytes | 250.00 KiB/s, done.
+Total 9 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/MohitGiri20/tdemo.git
+ * [new branch]      master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git add .
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git commit -m "Flie 2 updated post github"
+[master 2cb4ce4] Flie 2 updated post github
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git push -u origin master
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 375 bytes | 53.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/MohitGiri20/tdemo.git
+   880844c..2cb4ce4  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git log
+commit 2cb4ce4d8c0a60e6398c61bcd115aef19900575d (HEAD -> master, origin/master)
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 15:59:41 2021 +0530
+
+    Flie 2 updated post github
+
+commit 880844c59ec92cf796cff1861f5ba2a7a12883c0
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 14:47:48 2021 +0530
+
+    file 2 updated
+
+commit bcd491c7e9aff422b4518abf2219b337760bb651
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 14:44:17 2021 +0530
+
+    Added file 2
+
+commit 1d32da3adce65129fd19661a079407c876c9b1a2
+Author: MohitGiri20 <Mohit.Giri@team.telstra.com>
+Date:   Mon Aug 9 14:36:43 2021 +0530
+
+    File 1 version 1
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git log --oneline
+2cb4ce4 (HEAD -> master, origin/master) Flie 2 updated post github
+880844c file 2 updated
+bcd491c Added file 2
+1d32da3 File 1 version 1
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git diff 880844c bcd491c
+diff --git a/file2.txt b/file2.txt
+index fa6cd7d..eb334de 100644
+--- a/file2.txt
++++ b/file2.txt
+@@ -1 +1 @@
+-New Version updated
++New Version
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git checkout bcd491c
+Note: switching to 'bcd491c'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at bcd491c Added file 2
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>git log --oneline
+bcd491c (HEAD) Added file 2
+1d32da3 File 1 version 1
+
+C:\Users\d976996\OneDrive - Telstra\Documents\JFS\Day1\gitex>
